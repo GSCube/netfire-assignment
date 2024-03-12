@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const VideoControlWrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
+  background: ${({ theme }) => theme.colors.transparent};
+  border-radius: ${({ theme }) => theme.radius.medium};
   margin: 0 auto;
   padding: 10px;
   display: flex;
@@ -39,6 +40,24 @@ export const Range = styled.input`
     height: 5px;
     cursor: pointer;
     background: red;
+  }
+`;
+
+export const PlayButton = styled.button`
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: rgba(16, 18, 21, 1);
+  color: ${({ theme }) => theme.colors.accent};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  &:hover {
+    background: ${({ theme }) => theme.colors.secondary};
   }
 `;
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { Overlay, Range, VideoControlWrapper, VideoWrapper } from './styles';
+import { Overlay, PlayButton, Range, VideoControlWrapper, VideoWrapper } from './styles';
 import { formatTime } from './utils';
 
 interface HeroPlayerProps {
@@ -73,9 +73,9 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
       <Overlay>
         {children}
         <VideoControlWrapper>
-          <button type="button" onClick={handlePlayPauseToggle}>
+          <PlayButton type="button" onClick={handlePlayPauseToggle}>
             Play
-          </button>
+          </PlayButton>
           <Range type="range" value={progress} min="0" max="100" onChange={handleScrub} />
           {timeLeft}
         </VideoControlWrapper>
