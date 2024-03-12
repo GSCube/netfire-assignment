@@ -10,6 +10,14 @@ const theme = {
     medium: '10px',
     large: '12px',
   },
+  fontSizes: {
+    p1: '16px',
+    p2: '14px',
+    h1: '48px',
+    h2: '36px',
+    h3: '24px',
+    h4: '16px',
+  },
 };
 
 export default theme;
