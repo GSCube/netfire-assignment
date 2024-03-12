@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { Overlay, Range, VideoControlWrapper, VideoWrapper } from './styles';
+import { formatTime } from './utils';
 
 interface HeroPlayerProps {
   videoSrc: string;
@@ -14,7 +15,18 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
   const [progress, setProgress] = useState<number>(0);
   const [timeLeft, setTimeLeft] = useState<string>('00:00');
 
-  const togglePlayPause = async () => {
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.addEventListener('timeupdate', handleProgress);
+
+      return () => {
+        video.removeEventListener('timeupdate', handleProgress);
+      };
+    }
+  }, []);
+
+  const handlePlayPauseToggle = async () => {
     const video = videoRef.current;
 
     if (!video) {
@@ -31,33 +43,17 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
     }
   };
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.addEventListener('timeupdate', handleProgress);
-
-      return () => {
-        video.removeEventListener('timeupdate', handleProgress);
-      };
-    }
-  }, []);
-
   const handleProgress = () => {
     const video = videoRef.current;
     if (video) {
       const progressValue = (video.currentTime / video.duration) * 100;
       setProgress(progressValue);
 
-      const timeLeftInSeconds = video.duration - video.currentTime;
-      const minutes = Math.floor(timeLeftInSeconds / 60);
-      const seconds = Math.floor(timeLeftInSeconds % 60);
-      setTimeLeft(
-        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`,
-      );
+      setTimeLeft(formatTime(video.duration - video.currentTime));
     }
   };
 
-  const scrub = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleScrub = (e: React.ChangeEvent<HTMLInputElement>) => {
     const video = videoRef.current;
     const scrubTime = (parseFloat(e.target.value) / 100) * (video?.duration || 0);
     if (video) {
@@ -77,10 +73,10 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
       <Overlay>
         {children}
         <VideoControlWrapper>
-          <button type="button" onClick={togglePlayPause}>
+          <button type="button" onClick={handlePlayPauseToggle}>
             Play
           </button>
-          <Range type="range" value={progress} min="0" max="100" onChange={scrub} />
+          <Range type="range" value={progress} min="0" max="100" onChange={handleScrub} />
           {timeLeft}
         </VideoControlWrapper>
       </Overlay>
