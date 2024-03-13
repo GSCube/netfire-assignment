@@ -25,7 +25,7 @@ interface HeroPlayerProps {
 
 const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState<number>(0);
   const [timeLeft, setTimeLeft] = useState<string>('00:00');
 
