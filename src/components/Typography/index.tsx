@@ -1,19 +1,29 @@
 import styled, { css } from 'styled-components';
 
+type WeightVariant = 'light' | 'regular' | 'medium' | 'semiBold' | 'bold';
+
 // Paragraphs
+type ParagraphVariant = 'p' | 'p2';
 const paragraphLevel1Styles = css`
+  font-family: ${({ theme }) => theme.fonts.primary};
   font-size: ${({ theme }) => theme.fontSizes.medium};
-  color: ${({ theme }) => theme.colors.primary};
   margin: 0;
 `;
 
 const paragraphLevel2Styles = css`
+  font-family: ${({ theme }) => theme.fonts.primary};
   font-size: ${({ theme }) => theme.fontSizes.small};
-  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 400;
   margin: 0;
 `;
 
-export const Paragraph = styled.p<{ variant?: 'p' | 'p2' }>`
+export const GradientText = styled.span`
+  background: ${({ theme }) => theme.colors.gradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
+export const Paragraph = styled.p<{ variant?: ParagraphVariant; weight?: WeightVariant }>`
   ${({ variant }) => {
     switch (variant) {
       case 'p':
@@ -24,36 +34,61 @@ export const Paragraph = styled.p<{ variant?: 'p' | 'p2' }>`
         return paragraphLevel1Styles;
     }
   }}
+
+  ${({ weight }) => {
+    switch (weight) {
+      case 'light':
+        return css`
+          font-weight: ${({ theme }) => theme.fontWeights.light};
+        `;
+      case 'regular':
+        return css`
+          font-weight: ${({ theme }) => theme.fontWeights.regular};
+        `;
+      case 'medium':
+        return css`
+          font-weight: ${({ theme }) => theme.fontWeights.medium};
+        `;
+      case 'semiBold':
+        return css`
+          font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+        `;
+      case 'bold':
+        return css`
+          font-weight: ${({ theme }) => theme.fontWeights.bold};
+        `;
+      default:
+        return css`
+          font-weight: ${({ theme }) => theme.fontWeights.regular};
+        `;
+    }
+  }}
 `;
 
 // Headers
+type HeadersVariant = 'h1' | 'h2' | 'h3' | 'h4';
+
 const h1Styles = css`
   font-size: ${({ theme }) => theme.fontSizes.h1};
-  color: ${({ theme }) => theme.colors.primary};
   margin: 0;
 `;
 
 const h2Styles = css`
   font-size: ${({ theme }) => theme.fontSizes.large};
-  color: ${({ theme }) => theme.colors.primary};
   margin: 0;
 `;
 
 const h3Styles = css`
   font-size: ${({ theme }) => theme.fontSizes.medium};
-  color: ${({ theme }) => theme.colors.primary};
   margin: 0;
 `;
 
 const h4Styles = css`
   font-size: ${({ theme }) => theme.fontSizes.small};
-  color: ${({ theme }) => theme.colors.primary};
   margin: 0;
 `;
 
-type variant = 'h1' | 'h2' | 'h3' | 'h4';
-
-export const Heading = styled.h1<{ variant?: variant }>`
+export const Heading = styled.h1<{ variant?: HeadersVariant }>`
   ${({ variant }) => {
     switch (variant) {
       case 'h1':
@@ -68,4 +103,5 @@ export const Heading = styled.h1<{ variant?: variant }>`
         return h1Styles;
     }
   }}
+  font-family: ${({ theme }) => theme.fonts.secondary};
 `;
