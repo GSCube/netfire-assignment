@@ -22,11 +22,11 @@ export const LogoWrapper = styled.div`
 
 export const Highlight = styled.span`
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.textBrandName};
 `;
 
 export const BrandName = styled(Paragraph)`
   color: ${({ theme }) => theme.colors.textBrandName};
+  font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: 600;
   font-size: 24px;
 `;

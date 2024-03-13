@@ -26,13 +26,13 @@ export const Heading2 = styled.h2`
 type ParagraphVariant = 'p' | 'p2';
 const paragraphLevel1Styles = css`
   font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: ${({ theme }) => theme.fontSizes.medium};
+  font-size: ${({ theme }) => theme.fontSizes.p1};
   margin: 0;
 `;
 
 const paragraphLevel2Styles = css`
   font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: ${({ theme }) => theme.fontSizes.small};
+  font-size: ${({ theme }) => theme.fontSizes.p2};
   font-weight: 400;
   margin: 0;
 `;

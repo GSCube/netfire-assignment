@@ -15,7 +15,7 @@ export const HighlightedText = styled.span`
 `;
 
 const PromoBannerMessage = (
-  <Paragraph>
+  <Paragraph $variant={'p2'}>
     NEW CUSTOMERS GET 15% OFF! USE CODE <HighlightedText>WELCOME15</HighlightedText>
   </Paragraph>
 );

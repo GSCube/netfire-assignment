@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const size = '40px';
+const size = '43px';
 
 const IconWrapper = styled.div`
   width: ${size};

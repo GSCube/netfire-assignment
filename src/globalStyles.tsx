@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Exo', sans-serif;
-    font-weight: 500;
+    font-family: ${({ theme }) => theme.fonts.secondary};
+    font-weight:  ${({ theme }) => theme.fontWeights.medium};
     color: ${({ theme }) => theme.colors.text};
   }
   

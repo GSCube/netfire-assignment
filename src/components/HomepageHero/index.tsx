@@ -11,16 +11,20 @@ const ButtonWrapper = styled.div`
   margin-bottom: 40px;
 `;
 
+const Heading = styled(Heading1)`
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
 export const HomepageHero = () => {
   return (
     <HeroPlayer videoSrc={videoSrc} backupUrl={backupUrl}>
       <ButtonWrapper>
         <ButtonCTA>LOREM IPSUM</ButtonCTA>
       </ButtonWrapper>
-      <Heading1>
+      <Heading>
         <GradientText>Lorem Ipsum Dolor Sit amet</GradientText>
-      </Heading1>
-      <Heading1>Donec cursus ligula diam, nec congue augue ultrices nec.</Heading1>
+      </Heading>
+      <Heading>Donec cursus ligula diam, nec congue augue ultrices nec.</Heading>
     </HeroPlayer>
   );
 };
