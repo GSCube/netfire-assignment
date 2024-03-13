@@ -8,16 +8,28 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ContentSection from './components/ContentSection';
 import { AppContainer, MainContentContainer } from './components/Layout';
-import { Paragraph } from './components/Typography';
-
-export const HighlightedText = styled.span`
-  color: ${({ theme }) => theme.colors.promotionHighlight};
-`;
+import {
+  GradientText,
+  Heading2,
+  HighlightedText,
+  Paragraph,
+} from './components/Typography';
 
 const PromoBannerMessage = (
   <Paragraph $variant={'p2'}>
     NEW CUSTOMERS GET 15% OFF! USE CODE <HighlightedText>WELCOME15</HighlightedText>
   </Paragraph>
+);
+
+const ContentSectionText = (
+  <Heading2>
+    Lorem{' '}
+    <GradientText>
+      ipsum dolor sit amet consectetur adipiscing elit etiam molestie ex vel
+    </GradientText>{' '}
+    massa lacinia ultricies. Suspendisse lobortis vehicula eros, sed sodales eros mollis
+    eget. Morbi vitae libero in nunc sodales.
+  </Heading2>
 );
 
 const App = () => {
@@ -30,7 +42,7 @@ const App = () => {
         <Header />
         <HomepageHero />
         <MainContentContainer>
-          <ContentSection />
+          <ContentSection text={ContentSectionText} />
         </MainContentContainer>
         <Footer />
       </AppContainer>

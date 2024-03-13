@@ -77,3 +77,7 @@ export const Paragraph = styled.p<{
     }
   }}
 `;
+
+export const HighlightedText = styled.span`
+  color: ${({ theme }) => theme.colors.promotionHighlight};
+`;

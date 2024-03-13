@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MaxContainer } from '../Layout';
-import { GradientText, Heading2 } from '../Typography';
 import { ButtonSecondary, ButtonUnderlined } from '../Buttons';
 
 const ContentWrapper = styled.div`
@@ -15,22 +14,17 @@ const TextWrapper = styled.div`
   margin-bottom: 45px;
 `;
 
-const ContentSection: React.FC = () => {
+interface ContentSectionProps {
+  text: React.ReactNode;
+}
+
+const ContentSection: React.FC<ContentSectionProps> = ({ text }) => {
   return (
     <>
       <ContentWrapper>
         <MaxContainer>
           <ButtonSecondary>EXAMPLE SECTION</ButtonSecondary>
-          <TextWrapper>
-            <Heading2>
-              Lorem{' '}
-              <GradientText>
-                ipsum dolor sit amet consectetur adipiscing elit etiam molestie ex vel
-              </GradientText>{' '}
-              massa lacinia ultricies. Suspendisse lobortis vehicula eros, sed sodales
-              eros mollis eget. Morbi vitae libero in nunc sodales.
-            </Heading2>
-          </TextWrapper>
+          <TextWrapper>{text}</TextWrapper>
 
           <ButtonUnderlined>See more</ButtonUnderlined>
         </MaxContainer>
