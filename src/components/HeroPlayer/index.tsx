@@ -80,7 +80,7 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
 
   return (
     <HeroPlayerWrapper>
-      <Video ref={videoRef} controls={false} loop>
+      <Video ref={videoRef} controls={false} loop autoPlay muted>
         <source src={videoSrc} type="video/mp4" />
         <p>
           Your browser doesn&apos;t support HTML5 video. Here is a{' '}
