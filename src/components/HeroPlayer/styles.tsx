@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const HeroPlayerWrapper = styled.div`
-  position: relative;
-`;
-
 export const Video = styled.video`
   height: 100%;
   width: 100%;
@@ -25,6 +21,7 @@ export const Overlay = styled.section`
 
 // VIDEO CONTROLS
 export const VideoControlWrapper = styled.div`
+  opacity: 0;
   background: ${({ theme }) => theme.colors.transparent};
   border-radius: ${({ theme }) => theme.radius.medium};
   color: ${({ theme }) => theme.colors.secondary};
@@ -32,6 +29,7 @@ export const VideoControlWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: opacity ${({ theme }) => theme.transitionTime} ease-in-out;
 `;
 
 export const Content = styled.div`
@@ -46,7 +44,7 @@ export const ProgressBarContainer = styled.div`
   height: ${progressBarHeight};
   cursor: pointer;
   position: relative;
-  margin: 0 30px;
+  margin: 0 24px 0 30px;
   border-radius: ${progressBarHeight};
   overflow: hidden;
   background: ${({ theme }) => theme.colors.backgroundProgressBar};
@@ -74,4 +72,21 @@ export const PlayButton = styled.button`
   &:hover {
     background: ${({ theme }) => theme.colors.transparent};
   }
+`;
+
+export const HeroPlayerWrapper = styled.div`
+  position: relative;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.transparent};
+    ${VideoControlWrapper} {
+      opacity: 1;
+    }
+  }
+`;
+
+export const Time = styled.div`
+  width: 60px;
+  flex-shrink: 0;
+  text-align: right;
 `;
