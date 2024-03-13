@@ -1,7 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { Overlay, PlayButton, Range, VideoControlWrapper, VideoWrapper } from './styles';
+import { ReactComponent as Play } from 'assets/icons/play.svg';
+import {
+  Overlay,
+  PlayButton,
+  VideoControlWrapper,
+  HeroPlayerWrapper,
+  ProgressBarContainer,
+  ProgressBar,
+  Content,
+} from './styles';
 import { formatTime } from './utils';
+import { Paragraph } from '../Typography';
+import { MaxContainer } from '../Layout';
 
 interface HeroPlayerProps {
   videoSrc: string;
@@ -53,16 +64,19 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
     }
   };
 
-  const handleScrub = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleScrub = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    offsetX: number,
+  ) => {
     const video = videoRef.current;
-    const scrubTime = (parseFloat(e.target.value) / 100) * (video?.duration || 0);
+    const scrubTime = (offsetX / e.currentTarget.offsetWidth) * (video?.duration || 0);
     if (video) {
       video.currentTime = scrubTime;
     }
   };
 
   return (
-    <VideoWrapper>
+    <HeroPlayerWrapper>
       <video ref={videoRef} width="100%" height="100%" controls={false}>
         <source src={videoSrc} type="video/mp4" />
         <p>
@@ -71,16 +85,22 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
         </p>
       </video>
       <Overlay>
-        {children}
-        <VideoControlWrapper>
-          <PlayButton type="button" onClick={handlePlayPauseToggle}>
-            Play
-          </PlayButton>
-          <Range type="range" value={progress} min="0" max="100" onChange={handleScrub} />
-          {timeLeft}
-        </VideoControlWrapper>
+        <MaxContainer>
+          <Content>{children}</Content>
+          <VideoControlWrapper>
+            <PlayButton type="button" onClick={handlePlayPauseToggle}>
+              <Play />
+            </PlayButton>
+            <ProgressBarContainer onClick={(e) => handleScrub(e, e.nativeEvent.offsetX)}>
+              <ProgressBar progress={progress} />
+            </ProgressBarContainer>
+            <Paragraph variant="p2" weight="bold">
+              {timeLeft}
+            </Paragraph>
+          </VideoControlWrapper>
+        </MaxContainer>
       </Overlay>
-    </VideoWrapper>
+    </HeroPlayerWrapper>
   );
 };
 
