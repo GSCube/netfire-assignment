@@ -42,6 +42,10 @@ export const ButtonCTA = styled.button<{ $active?: boolean }>`
   border: 1px solid ${({ theme }) => theme.colors.borderButtonCTA};
   color: ${({ theme }) => theme.colors.textButtonCTA};
   font-size: ${({ theme }) => theme.fontSizes.buttonSmall};
+
+  &:hover {
+    background: initial;
+  }
 `;
 
 export const ButtonUnderlined = styled.button`
