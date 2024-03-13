@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 import { HomepageHero } from './components/HomepageHero';
 import { GlobalStyle } from './globalStyles';
