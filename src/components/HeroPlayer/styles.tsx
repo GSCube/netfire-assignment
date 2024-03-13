@@ -27,6 +27,7 @@ export const Overlay = styled.section`
 export const VideoControlWrapper = styled.div`
   background: ${({ theme }) => theme.colors.transparent};
   border-radius: ${({ theme }) => theme.radius.medium};
+  color: ${({ theme }) => theme.colors.secondary};
   padding: 20px 32px 24px;
   display: flex;
   justify-content: space-between;
@@ -64,13 +65,13 @@ export const PlayButton = styled.button`
   flex-shrink: 0;
   background: ${({ theme }) => theme.colors.backgroundPlayButton};
   color: ${({ theme }) => theme.colors.accent};
-
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
   cursor: pointer;
+
   &:hover {
-    background: ${({ theme }) => theme.colors.secondary};
+    background: ${({ theme }) => theme.colors.transparent};
   }
 `;

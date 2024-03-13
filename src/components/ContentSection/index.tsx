@@ -10,8 +10,9 @@ const ContentWrapper = styled.div`
   background: ${({ theme }) => theme.colors.backgroundPrimary};
 `;
 
-const ButtonWrapper = styled.div`
-  margin-bottom: 28px;
+const TextWrapper = styled.div`
+  margin-top: 28px;
+  margin-bottom: 45px;
 `;
 
 const ContentSection: React.FC = () => {
@@ -19,17 +20,18 @@ const ContentSection: React.FC = () => {
     <>
       <ContentWrapper>
         <MaxContainer>
-          <ButtonWrapper>
-            <ButtonSecondary>EXAMPLE SECTION</ButtonSecondary>
-          </ButtonWrapper>
-          <Heading2>
-            Lorem{' '}
-            <GradientText>
-              ipsum dolor sit amet consectetur adipiscing elit etiam molestie ex vel
-            </GradientText>{' '}
-            massa lacinia ultricies. Suspendisse lobortis vehicula eros, sed sodales eros
-            mollis eget. Morbi vitae libero in nunc sodales.
-          </Heading2>
+          <ButtonSecondary>EXAMPLE SECTION</ButtonSecondary>
+          <TextWrapper>
+            <Heading2>
+              Lorem{' '}
+              <GradientText>
+                ipsum dolor sit amet consectetur adipiscing elit etiam molestie ex vel
+              </GradientText>{' '}
+              massa lacinia ultricies. Suspendisse lobortis vehicula eros, sed sodales
+              eros mollis eget. Morbi vitae libero in nunc sodales.
+            </Heading2>
+          </TextWrapper>
+
           <ButtonUnderlined>See more</ButtonUnderlined>
         </MaxContainer>
       </ContentWrapper>

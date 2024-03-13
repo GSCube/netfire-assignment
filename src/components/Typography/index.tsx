@@ -27,6 +27,7 @@ type ParagraphVariant = 'p' | 'p2';
 const paragraphLevel1Styles = css`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: ${({ theme }) => theme.fontSizes.medium};
+  margin: 0;
 `;
 
 const paragraphLevel2Styles = css`

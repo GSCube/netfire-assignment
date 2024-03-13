@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { ReactComponent as Play } from 'assets/icons/play.svg';
+import { ReactComponent as Stop } from 'assets/icons/stop.svg';
 import {
   Overlay,
   PlayButton,
@@ -89,8 +90,8 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
         <MaxContainer>
           <Content>{children}</Content>
           <VideoControlWrapper>
-            <PlayButton type="button" onClick={handlePlayPauseToggle}>
-              <Play />
+            <PlayButton onClick={handlePlayPauseToggle}>
+              {isPlaying ? <Play /> : <Stop />}
             </PlayButton>
             <ProgressBarContainer onClick={(e) => handleScrub(e, e.nativeEvent.offsetX)}>
               <ProgressBar $progress={progress} />
