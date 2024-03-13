@@ -1,46 +1,54 @@
 import styled from 'styled-components';
 
+export const HeroPlayerWrapper = styled.div`
+  position: relative;
+`;
+
+export const Overlay = styled.section`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  padding-bottom: 178px;
+  display: flex;
+  align-items: flex-end;
+  background: ${({ theme }) => theme.colors.backgroundOverlay};
+`;
+
+// VIDEO CONTROLS
 export const VideoControlWrapper = styled.div`
   background: ${({ theme }) => theme.colors.transparent};
   border-radius: ${({ theme }) => theme.radius.medium};
-  margin: 0 auto;
-  padding: 10px;
+  padding: 20px 32px 24px;
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
 `;
 
-export const Overlay = styled.section`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: 10%;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-width: 800px;
+export const Content = styled.div`
+  max-width: 732px;
+  padding-bottom: 56px;
 `;
 
-export const Range = styled.input`
-  -webkit-appearance: none;
+const progressBarHeight = '10px';
+
+export const ProgressBarContainer = styled.div`
   width: 100%;
-  margin: 0 20px;
-  background: transparent;
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 10px;
-    height: 10px;
-    background: blue;
-    cursor: pointer;
-  }
-  &::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 5px;
-    cursor: pointer;
-    background: red;
-  }
+  height: ${progressBarHeight};
+  cursor: pointer;
+  position: relative;
+  margin: 0 30px;
+  border-radius: ${progressBarHeight};
+  overflow: hidden;
+  background: ${({ theme }) => theme.colors.backgroundProgressBar};
+`;
+
+export const ProgressBar = styled.div<{ progress: number }>`
+  height: 100%;
+  background: ${({ theme }) => theme.colors.accent};
+  width: ${({ progress }: { progress: number }) => `${progress}%`};
 `;
 
 export const PlayButton = styled.button`
@@ -48,19 +56,15 @@ export const PlayButton = styled.button`
   width: 48px;
   height: 48px;
   flex-shrink: 0;
-  background: rgba(16, 18, 21, 1);
+  background: ${({ theme }) => theme.colors.backgroundPlayButton};
   color: ${({ theme }) => theme.colors.accent};
+
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
   &:hover {
     background: ${({ theme }) => theme.colors.secondary};
   }
-`;
-
-export const VideoWrapper = styled.div`
-  position: relative;
 `;
