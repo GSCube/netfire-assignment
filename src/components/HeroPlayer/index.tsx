@@ -9,6 +9,7 @@ import {
   ProgressBarContainer,
   ProgressBar,
   Content,
+  Video,
 } from './styles';
 import { formatTime } from './utils';
 import { Paragraph } from '../Typography';
@@ -77,13 +78,13 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
 
   return (
     <HeroPlayerWrapper>
-      <video ref={videoRef} width="100%" height="100%" controls={false}>
+      <Video ref={videoRef} controls={false}>
         <source src={videoSrc} type="video/mp4" />
         <p>
           Your browser doesn&apos;t support HTML5 video. Here is a{' '}
           <a href={backupUrl}>link to the video</a> instead.
         </p>
-      </video>
+      </Video>
       <Overlay>
         <MaxContainer>
           <Content>{children}</Content>
@@ -92,9 +93,9 @@ const HeroPlayer: React.FC<HeroPlayerProps> = ({ videoSrc, children, backupUrl }
               <Play />
             </PlayButton>
             <ProgressBarContainer onClick={(e) => handleScrub(e, e.nativeEvent.offsetX)}>
-              <ProgressBar progress={progress} />
+              <ProgressBar $progress={progress} />
             </ProgressBarContainer>
-            <Paragraph variant="p2" weight="bold">
+            <Paragraph $variant="p2" $weight="bold">
               {timeLeft}
             </Paragraph>
           </VideoControlWrapper>

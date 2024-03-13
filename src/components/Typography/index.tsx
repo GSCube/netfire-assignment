@@ -1,13 +1,32 @@
 import styled, { css } from 'styled-components';
 
-type WeightVariant = 'light' | 'regular' | 'medium' | 'semiBold' | 'bold';
+type WeightVariant = 'regular' | 'medium' | 'semiBold' | 'bold';
+
+export const GradientText = styled.span`
+  background: ${({ theme }) => theme.colors.gradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
+// Headers
+export const Heading1 = styled.h1`
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-size: ${({ theme }) => theme.fontSizes.h1};
+  margin: 0;
+`;
+
+export const Heading2 = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-size: ${({ theme }) => theme.fontSizes.h2};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  margin: 0;
+`;
 
 // Paragraphs
 type ParagraphVariant = 'p' | 'p2';
 const paragraphLevel1Styles = css`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: ${({ theme }) => theme.fontSizes.medium};
-  margin: 0;
 `;
 
 const paragraphLevel2Styles = css`
@@ -17,15 +36,12 @@ const paragraphLevel2Styles = css`
   margin: 0;
 `;
 
-export const GradientText = styled.span`
-  background: ${({ theme }) => theme.colors.gradient};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
-
-export const Paragraph = styled.p<{ variant?: ParagraphVariant; weight?: WeightVariant }>`
-  ${({ variant }) => {
-    switch (variant) {
+export const Paragraph = styled.p<{
+  $variant?: ParagraphVariant;
+  $weight?: WeightVariant;
+}>`
+  ${({ $variant }) => {
+    switch ($variant) {
       case 'p':
         return paragraphLevel1Styles;
       case 'p2':
@@ -35,12 +51,8 @@ export const Paragraph = styled.p<{ variant?: ParagraphVariant; weight?: WeightV
     }
   }}
 
-  ${({ weight }) => {
-    switch (weight) {
-      case 'light':
-        return css`
-          font-weight: ${({ theme }) => theme.fontWeights.light};
-        `;
+  ${({ $weight }) => {
+    switch ($weight) {
       case 'regular':
         return css`
           font-weight: ${({ theme }) => theme.fontWeights.regular};
@@ -63,45 +75,4 @@ export const Paragraph = styled.p<{ variant?: ParagraphVariant; weight?: WeightV
         `;
     }
   }}
-`;
-
-// Headers
-type HeadersVariant = 'h1' | 'h2' | 'h3' | 'h4';
-
-const h1Styles = css`
-  font-size: ${({ theme }) => theme.fontSizes.h1};
-  margin: 0;
-`;
-
-const h2Styles = css`
-  font-size: ${({ theme }) => theme.fontSizes.large};
-  margin: 0;
-`;
-
-const h3Styles = css`
-  font-size: ${({ theme }) => theme.fontSizes.medium};
-  margin: 0;
-`;
-
-const h4Styles = css`
-  font-size: ${({ theme }) => theme.fontSizes.small};
-  margin: 0;
-`;
-
-export const Heading = styled.h1<{ variant?: HeadersVariant }>`
-  ${({ variant }) => {
-    switch (variant) {
-      case 'h1':
-        return h1Styles;
-      case 'h2':
-        return h2Styles;
-      case 'h3':
-        return h3Styles;
-      case 'h4':
-        return h4Styles;
-      default:
-        return h1Styles;
-    }
-  }}
-  font-family: ${({ theme }) => theme.fonts.secondary};
 `;

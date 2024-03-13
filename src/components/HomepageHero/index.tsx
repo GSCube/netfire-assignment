@@ -1,7 +1,7 @@
 import HeroPlayer from '../HeroPlayer';
 import videoSrc from 'assets/video/hero.mp4';
 import React from 'react';
-import { GradientText, Heading } from '../Typography';
+import { GradientText, Heading1 } from '../Typography';
 import styled from 'styled-components';
 import { ButtonCTA } from '../Buttons';
 
@@ -17,10 +17,10 @@ export const HomepageHero = () => {
       <ButtonWrapper>
         <ButtonCTA>LOREM IPSUM</ButtonCTA>
       </ButtonWrapper>
-      <Heading>
+      <Heading1>
         <GradientText>Lorem Ipsum Dolor Sit amet</GradientText>
-      </Heading>
-      <Heading>Donec cursus ligula diam, nec congue augue ultrices nec.</Heading>
+      </Heading1>
+      <Heading1>Donec cursus ligula diam, nec congue augue ultrices nec.</Heading1>
     </HeroPlayer>
   );
 };

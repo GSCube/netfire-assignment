@@ -40,7 +40,7 @@ const theme = {
   },
   fonts: {
     primary: 'Inter, sans-serif',
-    secondary: 'Exo", sans-serif',
+    secondary: 'Exo, sans-serif',
   },
   fontWeights: {
     regular: 400,
@@ -54,9 +54,8 @@ const theme = {
     p3: '11px',
     button: '14px',
     buttonSmall: '12px',
-    h1: '48px',
-    h2: '36px',
-    h3: '24px',
+    h1: '45px',
+    h2: '32px',
   },
 };
 

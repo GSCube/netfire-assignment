@@ -4,6 +4,12 @@ export const HeroPlayerWrapper = styled.div`
   position: relative;
 `;
 
+export const Video = styled.video`
+  height: 100%;
+  width: 100%;
+  display: block;
+`;
+
 export const Overlay = styled.section`
   position: absolute;
   top: 0;
@@ -45,10 +51,10 @@ export const ProgressBarContainer = styled.div`
   background: ${({ theme }) => theme.colors.backgroundProgressBar};
 `;
 
-export const ProgressBar = styled.div<{ progress: number }>`
+export const ProgressBar = styled.div<{ $progress: number }>`
   height: 100%;
   background: ${({ theme }) => theme.colors.accent};
-  width: ${({ progress }: { progress: number }) => `${progress}%`};
+  width: ${({ $progress }) => `${$progress}%`};
 `;
 
 export const PlayButton = styled.button`

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean }>`
+export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Exo', sans-serif;
     font-weight: 500;

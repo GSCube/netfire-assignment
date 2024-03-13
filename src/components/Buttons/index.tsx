@@ -17,21 +17,21 @@ const baseButtonStyles = css`
   }
 `;
 
-export const Button = styled.button<{ active?: boolean }>`
+export const Button = styled.button<{ $active?: boolean }>`
   ${baseButtonStyles};
-  background: ${({ active, theme }) =>
-    active ? theme.colors.backgroundButtonActive : theme.colors.backgroundPrimary};
-  font-weight: ${({ active, theme }) =>
-    active ? theme.fontWeights.semiBold : theme.fontWeights.regular};
+  background: ${({ $active, theme }) =>
+    $active ? theme.colors.backgroundButtonActive : theme.colors.backgroundPrimary};
+  font-weight: ${({ $active, theme }) =>
+    $active ? theme.fontWeights.semiBold : theme.fontWeights.regular};
 `;
 
-export const ButtonSecondary = styled.button<{ active?: boolean }>`
+export const ButtonSecondary = styled.button<{ $active?: boolean }>`
   ${baseButtonStyles};
   font-size: ${({ theme }) => theme.fontSizes.buttonSmall};
   border-radius: ${({ theme }) => theme.radius.buttonSecondary};
 `;
 
-export const ButtonCTA = styled.button<{ active?: boolean }>`
+export const ButtonCTA = styled.button<{ $active?: boolean }>`
   ${baseButtonStyles};
   background: ${({ theme }) => theme.colors.backgroundButtonCTA};
   border-radius: ${({ theme }) => theme.radius.buttonCTA};

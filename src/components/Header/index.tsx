@@ -14,7 +14,7 @@ const Header: React.FC = () => {
       <MaxContainer>
         <Content>
           <ButtonsWrapper>
-            <Button active={true}>Home</Button>
+            <Button $active={true}>Home</Button>
             <Button>About</Button>
             <Button>Products</Button>
           </ButtonsWrapper>
