@@ -1,4 +1,5 @@
 # What's next for the project?
+- As this was a test project I would consider to add some improvements for full production ready project.
 - For the sake of this test project I have used px for the dimensions of the components and the font-sizes,
 as it was the quickest way to get the project done. I would consider to use different for better accessibility 
 and responsiveness.
