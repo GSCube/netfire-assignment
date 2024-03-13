@@ -1,3 +1,19 @@
+# What's next for the project?
+- For the sake of this test project I have used px for the dimensions of the components and the font-sizes,
+as it was the quickest way to get the project done. I would consider to use different for better accessibility 
+and responsiveness.
+- This project looks like landing page that needs to be exposed to the public, so I would consider to use
+Next.js to make it SEO friendly or go with static generation with usage of:
+https://create-react-app.dev/docs/pre-rendering-into-static-html-files/
+- Same goes for other SEO improvements like meta tags, accessibility improvements, etc.
+- I would consider reducing video size for better performance and faster loading time.
+- Inline texts are not also a good idea as it's hard to maintain and it's not scalable, I would consider to use
+some kind of translation library like i18next or react-intl.
+- I would talk to the designer about some simplifications (eg. there is third font used in hero section -
+Space Grotesk and not sure if it's really needed)
+- It would be good to have some styling systems for sizes as gaps seams a bit random and not consistent.
+- I would consider to self host fonts (instead of importing it form google)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
